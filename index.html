@@ -6,6 +6,14 @@
   <title>KidLogic Loft</title>
   <meta name="description" content="KidLogic Loft creates calm, thoughtful and playful apps for children." />
 
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🧩</text></svg>'>
+
+  <meta property="og:title" content="KidLogic Loft">
+  <meta property="og:description" content="Calm little apps for curious kids.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kidlogicloft.com/">
+  <meta name="theme-color" content="#fff8ec">
+  
   <style>
     :root {
       --bg: #fff8ec;
@@ -241,6 +249,10 @@
     
     .coming-soon-content p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 720px; }
 
+    .projects-preview { margin-top: 36px; padding: 24px 28px; border-radius: 28px; background: rgba(255, 255, 255, 0.58); border: 1px solid rgba(255, 255, 255, 0.85); box-shadow: 0 18px 50px rgba(91, 71, 44, 0.06); } 
+    
+    .projects-preview h2 { margin: 0 0 8px; font-size: 24px; letter-spacing: -0.03em; } .projects-preview p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 720px; }
+
     section {
       margin-top: 72px;
     }
@@ -310,6 +322,20 @@
       .scene {
         height: 260px;
       }
+
+      .logo-text { 
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      } 
+      
+      .logo-text small { 
+        margin-top: 4px; 
+        font-size: 13px; 
+        color: var(--muted); 
+        font-weight: 600; 
+        letter-spacing: 0; 
+      }
     }
   </style>
 </head>
@@ -321,6 +347,9 @@
         <div class="logo-mark">🧩</div>
         <span>KidLogic Loft</span>
       </div>
+      <div class="logo-text"> 
+        <small>Calm little apps for curious kids</small> 
+      </div>
     </header>
 
     <main>
@@ -330,9 +359,12 @@
           <p class="lead">
             KidLogic Loft creates calm, playful and carefully crafted digital experiences for children - with a focus on quality, simple joy and parent-friendly design.
           </p>
+          <p class="lead">
+            We are working on gentle puzzle games, cozy little worlds and playful learning experiences for children.
+          </p>
           <a class="button" href="mailto:hello@kidlogicloft.com">Send us e-mail</a>
         </div>
-
+        
         <div class="toy-card" aria-label="Cozy illustrated toy scene">
           <div class="scene">
             <div class="sun"></div>
@@ -351,13 +383,15 @@
                 </p>
               </div>
           </div>
-
+          
           <div class="shelf">
             <div class="toy">🧩</div>
           </div>
         </div>
       </div>
 
+      
+      
       <section id="about">
         <div class="cards">
           <div class="info-card">
