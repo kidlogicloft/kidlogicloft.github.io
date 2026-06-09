@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Octo Puzzle — KidLogic Loft</title>
+  <meta name="description" content="Simple colorful puzzles with a friendly octopus. For toddlers and young children aged 3–8. No ads, no noise." />
+  <meta property="og:title" content="Happy Octo Puzzle" />
+  <meta property="og:description" content="Simple colorful puzzles with a friendly octopus. For kids aged 3–8." />
+  <meta property="og:image" content="https://kidlogicloft.com/apps/happy-octo-puzzle/banner.png" />
+  <meta property="og:url" content="https://kidlogicloft.com/apps/happy-octo-puzzle/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#fff8ec" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fdf6e8;
+      color: #3d2e12;
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #b09060;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: #c0842a; }
+
+    /* ── Hero card ── */
+    .hero {
+      background: #fff8ec;
+      border-radius: 24px;
+      border: 1px solid #f0ddb8;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .banner {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1024 / 500;
+      object-fit: cover;
+    }
+
+    .hero-body {
+      padding: 32px 36px 36px;
+    }
+
+    .app-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .app-icon-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+
+    .app-meta-text {}
+    .app-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #3d2e12;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .app-by {
+      font-size: 13px;
+      color: #b09060;
+      font-weight: 700;
+    }
+
+    .app-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+    .tag--green  { background: #edf7ed; color: #3a7a3a; border: 1px solid #b5d9b5; }
+    .tag--warm   { background: #fff8ec; color: #c0842a; border: 1px solid #f0ddb8; }
+    .tag--blue   { background: #eef3fb; color: #4a6ea8; border: 1px solid #c0d0ea; }
+
+    .app-desc {
+      font-size: 15px;
+      color: #6b5432;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 14px;
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: 'Nunito', sans-serif;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s;
+    }
+    .btn-play:hover { background: #2d2d4a; transform: translateY(-1px); }
+    .btn-play svg { flex-shrink: 0; }
+    .btn-play-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .btn-play-sub { font-size: 10px; font-weight: 700; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.06em; }
+    .btn-play-main { font-size: 15px; }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #edf7ed;
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #3a7a3a;
+      border: 1px solid #b5d9b5;
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4caf50;
+    }
+
+    /* ── Features ── */
+    .sec-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b09060;
+      margin-bottom: 10px;
+      padding-left: 2px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .feat-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #ecddb5;
+      padding: 20px 16px;
+    }
+    .feat-icon { font-size: 24px; margin-bottom: 10px; }
+    .feat-title { font-size: 14px; font-weight: 800; color: #3d2e12; margin-bottom: 6px; }
+    .feat-text  { font-size: 13px; color: #8a7050; line-height: 1.55; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #ecddb5;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy { font-size: 12px; color: #b09060; }
+    .footer-link {
+      font-size: 13px;
+      color: #c0842a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .footer-link:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .hero-body { padding: 24px 20px 28px; }
+      .app-name { font-size: 20px; }
+      .features { grid-template-columns: 1fr; }
+      .app-meta { gap: 14px; }
+      .app-icon-img { width: 64px; height: 64px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <a class="back-link" href="/">← KidLogic Loft</a>
+
+    <!-- Hero -->
+    <section class="hero">
+      <img class="banner" src="banner.png" alt="Happy Octo Puzzle — colorful underwater puzzle game for kids" />
+      <div class="hero-body">
+
+        <div class="app-meta">
+          <img class="app-icon-img" src="icon.png" alt="Happy Octo Puzzle icon" />
+          <div class="app-meta-text">
+            <h1 class="app-name">Happy Octo Puzzle</h1>
+            <p class="app-by">by KidLogic Loft</p>
+          </div>
+        </div>
+
+        <div class="app-tags">
+          <span class="tag tag--warm">Puzzle</span>
+          <span class="tag tag--blue">Ages 3–8</span>
+          <span class="tag tag--green">No ads</span>
+          <span class="tag tag--green">No in-app purchases</span>
+        </div>
+
+        <p class="app-desc">
+          Meet Octo — a cheerful purple octopus who loves jigsaw puzzles! Happy Octo Puzzle is a calm, colorful puzzle game designed for toddlers and young children. Simple drag-and-drop mechanics, bright illustrations and gentle encouragement make it a perfect first puzzle experience.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.kidlogicloft.happyocto" target="_blank" rel="noopener">
+            <!-- Google Play icon -->
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 2.07C2.5 1.19 3.46 0.65 4.21 1.1L19.79 9.03C20.56 9.49 20.56 10.51 19.79 10.97L4.21 20.9C3.46 21.35 2.5 20.81 2.5 19.93V2.07Z" fill="url(#gp)"/>
+              <defs>
+                <linearGradient id="gp" x1="2.5" y1="1" x2="20.5" y2="11" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00C6FF"/>
+                  <stop offset="0.35" stop-color="#00E676"/>
+                  <stop offset="0.65" stop-color="#FFEB3B"/>
+                  <stop offset="1" stop-color="#FF5252"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="btn-play-text">
+              <span class="btn-play-sub">Get it on</span>
+              <span class="btn-play-main">Google Play</span>
+            </span>
+          </a>
+          <div class="live-badge"><div class="live-dot"></div>Live now</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Features -->
+    <p class="sec-label">What's inside</p>
+    <div class="features">
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">🧩</div>
+        <p class="feat-title">Simple puzzles</p>
+        <p class="feat-text">Colorful jigsaw pieces sized just right for little fingers. Drag, drop and celebrate!</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">🔕</div>
+        <p class="feat-title">No distractions</p>
+        <p class="feat-text">No ads, no pop-ups, no timers. Kids play at their own pace in a calm space.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">👨‍👩‍👧</div>
+        <p class="feat-title">Parent-safe</p>
+        <p class="feat-text">No data collection, no in-app purchases. Safe and reassuring for the whole family.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">📱</div>
+        <p class="feat-title">Phone &amp; tablet</p>
+        <p class="feat-text">Designed to look great on any Android device, from compact phones to large tablets.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-copy">© 2026 KidLogic Loft</span>
+      <a class="footer-link" href="mailto:hello@kidlogicloft.com">hello@kidlogicloft.com</a>
+    </footer>
+
+  </main>
+</body>
+</html>

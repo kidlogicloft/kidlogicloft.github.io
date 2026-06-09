@@ -216,6 +216,13 @@
       justify-content: center;
       font-size: 28px;
       margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .app-name {
@@ -335,9 +342,9 @@
     <div class="apps">
 
       <!-- Happy Octo — live -->
-      <a class="app-card app-card--live" href="https://play.google.com/store/apps/details?id=com.kidlogicloft.happyocto" target="_blank" rel="noopener">
+      <a class="app-card app-card--live" href="/apps/happy-octo-puzzle/">
         <div class="live-badge"><div class="live-dot"></div>Live on Play</div>
-        <div class="app-icon" style="background:#dff0fa;">🐙</div>
+        <div class="app-icon"><img src="/apps/happy-octo-puzzle/icon.png" alt="Happy Octo Puzzle icon" /></div>
         <p class="app-name">Happy Octo Puzzle</p>
         <p class="app-desc">Simple colorful puzzles with a friendly octopus. For toddlers and young children aged 3–8.</p>
         <div class="app-tags">
@@ -345,7 +352,7 @@
           <span class="tag tag--blue">Ages 3–8</span>
           <span class="tag tag--green">No ads</span>
         </div>
-        <span class="play-link">View on Google Play →</span>
+        <span class="play-link">Learn more →</span>
       </a>
 
       <!-- WIP 1 -->
