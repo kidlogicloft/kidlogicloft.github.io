@@ -1,421 +1,391 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KidLogic Loft</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KidLogic Loft — Calm little apps for curious kids</title>
   <meta name="description" content="KidLogic Loft creates calm, thoughtful and playful apps for children." />
-
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🧩</text></svg>'>
-
-  <meta property="og:title" content="KidLogic Loft">
-  <meta property="og:description" content="Calm little apps for curious kids.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kidlogicloft.com/">
-  <meta name="theme-color" content="#fff8ec">
-  
+  <meta property="og:title" content="KidLogic Loft" />
+  <meta property="og:description" content="Calm little apps for curious kids." />
+  <meta property="og:url" content="https://kidlogicloft.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#fff8ec" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #fff8ec;
-      --card: #ffffff;
-      --text: #2f2a24;
-      --muted: #756c60;
-      --accent: #7fb685;
-      --accent-dark: #4d8a57;
-      --soft: #f4dfb8;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, #ffe7b8 0, transparent 34%),
-        radial-gradient(circle at bottom right, #d8f0dd 0, transparent 30%),
-        var(--bg);
-      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      background: #fdf6e8;
+      color: #3d2e12;
       min-height: 100vh;
+      padding: 24px 16px 48px;
     }
 
     .page {
-      width: min(960px, calc(100% - 32px));
+      max-width: 720px;
       margin: 0 auto;
-      padding: 56px 0 32px;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 64px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -0.03em;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), #f2c879);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 10px 28px rgba(77, 138, 87, 0.18);
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      margin-left: 18px;
-    }
-
-    nav a:hover {
-      color: var(--accent-dark);
-    }
-
+    /* ── Hero ── */
     .hero {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 40px;
-      align-items: center;
+      background: #fff8ec;
+      border-radius: 24px;
+      border: 1px solid #f0ddb8;
+      padding: 52px 40px 44px;
+      text-align: center;
+      margin-bottom: 16px;
     }
 
-    h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      margin: 0 0 24px;
-    }
-
-    .lead {
-      font-size: clamp(18px, 2.4vw, 23px);
-      line-height: 1.55;
-      color: var(--muted);
-      max-width: 620px;
-      margin: 0 0 32px;
-    }
-
-    .button {
+    .logo-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 14px 20px;
-      border-radius: 999px;
-      background: var(--accent-dark);
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 12px 28px rgba(77, 138, 87, 0.24);
+      gap: 8px;
+      background: #fff;
+      border-radius: 100px;
+      padding: 6px 18px 6px 12px;
+      border: 1px solid #f0ddb8;
+      margin-bottom: 28px;
     }
-
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .toy-card {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 34px;
-      padding: 28px;
-      box-shadow: 0 24px 70px rgba(91, 71, 44, 0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scene {
-      height: 320px;
-      border-radius: 26px;
-      background:
-        linear-gradient(#b9dff5 0 42%, #bfe3b8 42% 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hill {
-      position: absolute;
-      bottom: 42px;
-      width: 420px;
-      height: 150px;
-      background: #9fd59b;
+    .logo-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
+      background: #e8a030;
+      flex-shrink: 0;
+    }
+    .logo-name {
+      font-size: 12px;
+      font-weight: 800;
+      color: #8a6a2e;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
     }
 
-    .hill.one {
-      left: -90px;
-    }
-
-    .hill.two {
-      right: -120px;
-      bottom: 28px;
-      background: #8dcc8a;
-    }
-
-    .house {
-      position: absolute;
-      left: 118px;
-      bottom: 88px;
-      width: 96px;
-      height: 78px;
-      background: #fff3d8;
-      border-radius: 16px;
-      box-shadow: inset 0 -8px 0 rgba(0,0,0,0.04);
-    }
-
-    .roof {
-      position: absolute;
-      left: 105px;
-      bottom: 150px;
-      width: 122px;
-      height: 58px;
-      background: #c46b4b;
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    }
-
-    .tree {
-      position: absolute;
-      right: 90px;
-      bottom: 90px;
-      width: 34px;
-      height: 82px;
-      background: #8a613d;
-      border-radius: 20px;
-    }
-
-    .tree::before {
-      content: "";
-      position: absolute;
-      left: -36px;
-      top: -62px;
-      width: 108px;
-      height: 92px;
-      background: #5fae68;
-      border-radius: 50%;
-    }
-
-    .sun {
-      position: absolute;
-      right: 36px;
-      top: 32px;
-      width: 58px;
-      height: 58px;
-      background: #ffd36d;
-      border-radius: 50%;
-    }
-
-    .animal {
-      position: absolute;
-      left: 170px;
-      bottom: 54px;
-      font-size: 42px;
-      filter: drop-shadow(0 7px 4px rgba(0,0,0,0.08));
-    }
-
-    .shelf {
-      margin-top: 18px;
-      background: #d9ae74;
-      border-radius: 20px;
-      padding: 13px;
+    .hero-shapes {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      box-shadow: inset 0 -6px 0 rgba(101, 70, 35, 0.12);
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .shape {
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      width: 52px;
+      height: 52px;
+    }
+    .shape-lg {
+      width: 64px;
+      height: 64px;
+      font-size: 30px;
     }
 
-    .toy {
-      width: 54px;
-      height: 54px;
-      border-radius: 17px;
-      background: #fff4da;
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      box-shadow: 0 8px 16px rgba(89, 56, 24, 0.12);
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #3d2e12;
+      line-height: 1.2;
+      margin-bottom: 14px;
     }
-    
-    .coming-soon { margin-top: 56px; padding: 24px 28px; border-radius: 28px; background: rgba(255,255,255,0.72); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 18px 50px rgba(91, 71, 44, 0.08); display: flex; align-items: center; gap: 20px; }
-    
-    .coming-soon-content h2 { margin: 0 0 8px; font-size: 24px; letter-spacing: -0.03em; } 
-    
-    .coming-soon-content p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 720px; }
+    .hero h1 span { color: #c0842a; }
 
-    .projects-preview { margin-top: 36px; padding: 24px 28px; border-radius: 28px; background: rgba(255, 255, 255, 0.58); border: 1px solid rgba(255, 255, 255, 0.85); box-shadow: 0 18px 50px rgba(91, 71, 44, 0.06); } 
-    
-    .projects-preview h2 { margin: 0 0 8px; font-size: 24px; letter-spacing: -0.03em; } .projects-preview p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 720px; }
-
-    section {
-      margin-top: 72px;
+    .hero p {
+      font-size: 16px;
+      color: #8a7050;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .cards {
+    .btn-ghost {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #e8c878;
+      border-radius: 100px;
+      padding: 11px 26px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #c0842a;
+      font-family: 'Nunito', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: #fef3de; }
+
+    /* ── Section label ── */
+    .sec-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b09060;
+      margin-bottom: 10px;
+      padding-left: 2px;
+    }
+
+    /* ── Values ── */
+    .values {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 12px;
+      margin-bottom: 16px;
     }
-
-    .info-card {
-      background: rgba(255, 255, 255, 0.72);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 16px 40px rgba(91, 71, 44, 0.08);
+    .val-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #ecddb5;
+      padding: 20px 16px;
     }
-
-    .info-card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-
-    .info-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    footer {
-      margin-top: 72px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(47, 42, 36, 0.12);
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+    .val-icon { font-size: 22px; margin-bottom: 10px; }
+    .val-title {
       font-size: 14px;
+      font-weight: 800;
+      color: #3d2e12;
+      margin-bottom: 6px;
+    }
+    .val-text {
+      font-size: 13px;
+      color: #8a7050;
+      line-height: 1.55;
     }
 
-    footer a {
-      color: var(--accent-dark);
+    /* ── Apps grid ── */
+    .apps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .app-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #ecddb5;
+      padding: 22px;
+      position: relative;
+      transition: background 0.15s;
+    }
+    .app-card--live {
+      border: 2px solid #e8c878;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: 700;
+      display: block;
+      color: inherit;
+    }
+    .app-card--live:hover { background: #fffdf7; }
+    .app-card--wip { opacity: 0.75; }
+
+    .live-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #edf7ed;
+      border-radius: 100px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #3a7a3a;
+      border: 1px solid #b5d9b5;
+    }
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4caf50;
     }
 
-    @media (max-width: 760px) {
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-        margin-bottom: 44px;
-      }
+    .app-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
 
-      nav a {
-        margin-left: 0;
-        margin-right: 16px;
-      }
+    .app-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #3d2e12;
+      margin-bottom: 6px;
+    }
+    .app-desc {
+      font-size: 13px;
+      color: #8a7050;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
+    .app-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 100px;
+      padding: 3px 10px;
+    }
+    .tag--green  { background: #edf7ed; color: #3a7a3a; border: 1px solid #b5d9b5; }
+    .tag--warm   { background: #fff8ec; color: #c0842a; border: 1px solid #f0ddb8; }
+    .tag--blue   { background: #eef3fb; color: #4a6ea8; border: 1px solid #c0d0ea; }
+    .tag--gray   { background: #f4f2ee; color: #8a7a5a; border: 1px solid #ddd9ce; }
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
+    .play-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #c0842a;
+    }
 
-      .scene {
-        height: 260px;
-      }
+    /* ── Footer ── */
+    .footer {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #ecddb5;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy { font-size: 12px; color: #b09060; }
+    .footer-link {
+      font-size: 13px;
+      color: #c0842a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .footer-link:hover { text-decoration: underline; }
 
-      .logo-text { 
-        display: flex;
-        flex-direction: column;
-        line-height: 1.1;
-      } 
-      
-      .logo-text small { 
-        margin-top: 4px; 
-        font-size: 13px; 
-        color: var(--muted); 
-        font-weight: 600; 
-        letter-spacing: 0; 
-      }
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .hero { padding: 36px 24px 32px; }
+      .hero h1 { font-size: 28px; }
+      .values { grid-template-columns: 1fr; }
+      .apps { grid-template-columns: 1fr; }
+      .hero-shapes .shape:nth-child(4),
+      .hero-shapes .shape:nth-child(5) { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
     }
   </style>
 </head>
-
 <body>
-  <div class="page">
-    <header>
-      <div class="logo">
-        <div class="logo-mark">🧩</div>
-        <span>KidLogic Loft</span>
-      </div>
-      <div class="logo-text"> 
-        <small>Calm little apps for curious kids</small> 
-      </div>
-    </header>
+  <main class="page">
 
-    <main>
-      <div class="hero">
-        <div>
-          <h1>Thoughtful little apps for curious kids.</h1>
-          <p class="lead">
-            KidLogic Loft creates calm, playful and carefully crafted digital experiences for children - with a focus on quality, simple joy and parent-friendly design.
-          </p>
-          <p class="lead">
-            We are working on gentle puzzle games, cozy little worlds and playful learning experiences for children.
-          </p>
-          <a class="button" href="mailto:hello@kidlogicloft.com">Send us e-mail</a>
-        </div>
-        
-        <div class="toy-card" aria-label="Cozy illustrated toy scene">
-          <div class="scene">
-            <div class="sun"></div>
-            <div class="hill one"></div>
-            <div class="hill two"></div>
-            <div class="roof"></div>
-            <div class="house"></div>
-            <div class="tree"></div>
-            <div class="animal">🐐</div>
-          </div>
-          
-          <div class="coming-soon">
-              <div class="coming-soon-content">
-                <h2>🌱 Still growing</h2>
-                <p>The KidLogic Loft website and upcoming apps are currently in development. Cozy little worlds, playful puzzles and thoughtful experiences for children are on the way.
-                </p>
-              </div>
-          </div>
-          
-          <div class="shelf">
-            <div class="toy">🧩</div>
-          </div>
-        </div>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="logo-badge">
+        <div class="logo-dot"></div>
+        <span class="logo-name">KidLogic Loft</span>
       </div>
 
-      
-      
-      <section id="about">
-        <div class="cards">
-          <div class="info-card">
-            <h3>Calm by design</h3>
-            <p>No noisy tricks, no aggressive loops - just gentle interactions children can enjoy at their own pace.</p>
-          </div>
+      <div class="hero-shapes" aria-hidden="true">
+        <div class="shape" style="background:#fdeec8;">🧩</div>
+        <div class="shape" style="background:#fde0cc;">🌊</div>
+        <div class="shape shape-lg" style="background:#fde8d8;">🐙</div>
+        <div class="shape" style="background:#e8f4e8;">🌱</div>
+        <div class="shape" style="background:#fde8f4;">🎈</div>
+      </div>
 
-          <div class="info-card">
-            <h3>Made with care</h3>
-            <p>Every app is built around clear visuals, simple logic and a warm atmosphere.</p>
-          </div>
+      <h1>Calm little apps<br>for <span>curious kids</span></h1>
+      <p>Thoughtful, playful digital experiences for children —<br>no ads, no noise, just gentle joy.</p>
+      <a class="btn-ghost" href="mailto:hello@kidlogicloft.com">Say hello ✉️</a>
+    </section>
 
-          <div class="info-card">
-            <h3>For families</h3>
-            <p>Designed to be pleasant for children and reassuring for parents.</p>
-          </div>
+    <!-- Values -->
+    <p class="sec-label">Our approach</p>
+    <div class="values">
+      <div class="val-card">
+        <div class="val-icon" aria-hidden="true">🔕</div>
+        <p class="val-title">Calm by design</p>
+        <p class="val-text">No aggressive loops or noisy tricks — just gentle play at their own pace.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon" aria-hidden="true">🪡</div>
+        <p class="val-title">Made with care</p>
+        <p class="val-text">Clear visuals, simple logic and a warm atmosphere in every screen.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon" aria-hidden="true">👨‍👩‍👧</div>
+        <p class="val-title">For families</p>
+        <p class="val-text">No ads. No data collection. Safe and reassuring for parents.</p>
+      </div>
+    </div>
+
+    <!-- Apps -->
+    <p class="sec-label">Our apps</p>
+    <div class="apps">
+
+      <!-- Happy Octo — live -->
+      <a class="app-card app-card--live" href="https://play.google.com/store/apps/details?id=com.kidlogicloft.happyocto" target="_blank" rel="noopener">
+        <div class="live-badge"><div class="live-dot"></div>Live on Play</div>
+        <div class="app-icon" style="background:#dff0fa;">🐙</div>
+        <p class="app-name">Happy Octo Puzzle</p>
+        <p class="app-desc">Simple colorful puzzles with a friendly octopus. For toddlers and young children aged 3–8.</p>
+        <div class="app-tags">
+          <span class="tag tag--warm">Puzzle</span>
+          <span class="tag tag--blue">Ages 3–8</span>
+          <span class="tag tag--green">No ads</span>
         </div>
-      </section>
-    </main>
+        <span class="play-link">View on Google Play →</span>
+      </a>
 
-    <footer>
-      <span>© 2026 KidLogic Loft</span>
-      <span><a href="mailto:hello@kidlogicloft.com">hello@kidlogicloft.com</a></span>
+      <!-- WIP 1 -->
+      <div class="app-card app-card--wip">
+        <div class="app-icon" style="background:#f4f0e8;">🌙</div>
+        <p class="app-name">Coming soon</p>
+        <p class="app-desc">A cozy little world is taking shape. More details soon.</p>
+        <div class="app-tags">
+          <span class="tag tag--gray">In development</span>
+        </div>
+      </div>
+
+      <!-- WIP 2 -->
+      <div class="app-card app-card--wip">
+        <div class="app-icon" style="background:#eef4f0;">🌿</div>
+        <p class="app-name">Coming soon</p>
+        <p class="app-desc">Something gentle and playful is on its way.</p>
+        <div class="app-tags">
+          <span class="tag tag--gray">In development</span>
+        </div>
+      </div>
+
+      <!-- WIP 3 -->
+      <div class="app-card app-card--wip">
+        <div class="app-icon" style="background:#f8ecf4;">🎈</div>
+        <p class="app-name">Coming soon</p>
+        <p class="app-desc">Another thoughtful experience in the works.</p>
+        <div class="app-tags">
+          <span class="tag tag--gray">In development</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-copy">© 2026 KidLogic Loft</span>
+      <a class="footer-link" href="mailto:hello@kidlogicloft.com">hello@kidlogicloft.com</a>
     </footer>
-  </div>
+
+  </main>
 </body>
 </html>
