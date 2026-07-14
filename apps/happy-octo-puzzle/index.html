@@ -297,8 +297,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 20px;
     }
     .footer-copy { font-size: 12px; color: #b09060; }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
     .footer-link {
       font-size: 13px;
       color: #c0842a;
@@ -424,7 +432,10 @@
     <!-- Footer -->
     <footer class="footer">
       <span class="footer-copy">© 2026 KidLogic Loft</span>
-      <a class="footer-link" href="mailto:hello@kidlogicloft.com">hello@kidlogicloft.com</a>
+      <div class="footer-links">
+        <a class="footer-link" href="/privacy/">Privacy Policy</a>
+        <a class="footer-link" href="mailto:hello@kidlogicloft.com">hello@kidlogicloft.com</a>
+      </div>
     </footer>
 
   </main>
